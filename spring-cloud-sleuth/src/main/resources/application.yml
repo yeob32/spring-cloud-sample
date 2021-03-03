@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: greeting-app
+  sleuth:
+    sampler:
+      # 로그 수집 비율 1 = 100%
+      # 성능 저하 유발 가능 => 적절하게 비율 조정 필요
+      probability: 1.0
+    enabled: true
+  zipkin:
+    sender:
+      # Zipkin 서버로 제공할 방법 설정
+      type: web
+    base-url: http://127.0.0.1:9411/
+    enabled: true
