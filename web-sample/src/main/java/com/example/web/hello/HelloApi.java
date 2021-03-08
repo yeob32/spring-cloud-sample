@@ -2,8 +2,11 @@ package com.example.web.hello;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.net.URI;
 
 @RestController
 public class HelloApi {
@@ -32,5 +35,9 @@ public class HelloApi {
     public void hello2() throws Exception {
         log.info("hello 500 !");
         throw new Exception();
+    }
+
+    public ResponseEntity<Void> test() {
+        return ResponseEntity.created(URI.create("/")).build();
     }
 }
